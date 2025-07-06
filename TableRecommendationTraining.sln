@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TableRecommendationTraining", "TableRecommendationTraining\TableRecommendationTraining.csproj", "{A9A71605-340E-4A98-B018-2D54491B56D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TableRecommendationTests", "TableRecommendationTests\TableRecommendationTests.csproj", "{A0C004C5-545C-4398-B311-BE5E7B4A0B6B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9A71605-340E-4A98-B018-2D54491B56D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9A71605-340E-4A98-B018-2D54491B56D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9A71605-340E-4A98-B018-2D54491B56D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9A71605-340E-4A98-B018-2D54491B56D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0C004C5-545C-4398-B311-BE5E7B4A0B6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0C004C5-545C-4398-B311-BE5E7B4A0B6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0C004C5-545C-4398-B311-BE5E7B4A0B6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0C004C5-545C-4398-B311-BE5E7B4A0B6B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
