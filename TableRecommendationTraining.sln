@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TableRecommendationTraining", "TableRecommendationTraining\TableRecommendationTraining.csproj", "{A9A71605-340E-4A98-B018-2D54491B56D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{A0C004C5-545C-4398-B311-BE5E7B4A0B6B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TableRecommendationTests", "Tests\TableRecommendationTests.csproj", "{A0C004C5-545C-4398-B311-BE5E7B4A0B6B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

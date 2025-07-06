@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TableRecommendationTests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aafae70b8004cd0c775d1f29dda5ab9251158359")]
 [assembly: System.Reflection.AssemblyProductAttribute("TableRecommendationTests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TableRecommendationTests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
