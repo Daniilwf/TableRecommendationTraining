@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -84,6 +85,7 @@ public class MLflowLogger
 
 public class Program
 {
+    [SuppressMessage("ReSharper.DPA", "DPA0003: Excessive memory allocations in LOH", MessageId = "type: System.Double[]; size: 64MB")]
     static async Task Main(string[] args)
     {
         var mlContext = new MLContext(seed: 0);
