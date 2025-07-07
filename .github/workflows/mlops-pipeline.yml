@@ -1,53 +1,55 @@
-﻿name: MLOps Pipeline для рекомендаций столов
-
-on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Установка .NET SDK
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: '9.0.x'
-      - name: Запуск юнит-тестов
-        run: dotnet test ./Tests/TableRecommendationTests.csproj --configuration Release
-
-  train:
-    runs-on: ubuntu-latest
-    needs: test
-    steps:
-      - uses: actions/checkout@v3
-      - name: Обучение модели
-        run: dotnet run --project TableRecommendationTraining.csproj --configuration Release
-      - name: Сохранение модели
-        run: cp TableRecommendationModel.zip ./artifacts/
-      - uses: actions/upload-artifact@v3
-        with:
-          name: model-artifact
-          path: ./artifacts/TableRecommendationModel.zip
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: train
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/download-artifact@v3
-        with:
-          name: model-artifact
-          path: ./artifacts
-      - name: Построение Docker-образа
-        run: |
-          docker build -t table-recommendation:latest .
-          docker save -o table-recommendation.tar table-recommendation:latest
-      - uses: actions/upload-artifact@v3
-        with:
-          name: docker-image
-          path: table-recommendation.tar
+﻿  name: MLOps Pipeline для рекомендаций столов
+  
+  on:
+    push:
+      branches:
+        - main
+    pull_request:
+      branches:
+        - main
+  
+  jobs:
+    test:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v4
+        - name: Установка .NET SDK
+          uses: actions/setup-dotnet@v4
+          with:
+            dotnet-version: '9.0.x'
+        - name: Запуск юнит-тестов
+          run: dotnet test ./Tests/TableRecommendationTests.csproj --configuration Release
+    
+    train:
+      runs-on: ubuntu-latest
+      needs: test
+      steps:
+        - uses: actions/checkout@v4
+        - name: Обучение модели
+          run: dotnet run --project TableRecommendationTraining.csproj --configuration Release
+        - name: Сохранение модели
+          run: cp TableRecommendationModel.zip ./artifacts/
+        - uses: actions/upload-artifact@v4
+          with:
+            name: model-artifact
+            path: ./artifacts/TableRecommendationModel.zip
+            retention-days: 7
+    
+    deploy:
+      runs-on: ubuntu-latest
+      needs: train
+      steps:
+        - uses: actions/checkout@v4
+        - uses: actions/download-artifact@v4
+          with:
+            name: model-artifact
+            path: ./artifacts
+        - name: Построение Docker-образа
+          run: |
+            docker build -t table-recommendation:latest .
+            docker save -o table-recommendation.tar table-recommendation:latest
+        - uses: actions/upload-artifact@v4
+          with:
+            name: docker-image
+            path: table-recommendation.tar
+            retention-days: 7
