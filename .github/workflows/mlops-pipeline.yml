@@ -25,6 +25,10 @@
       needs: test
       steps:
         - uses: actions/checkout@v4
+        - name: Установка .NET SDK
+          uses: actions/setup-dotnet@v4
+          with:
+            dotnet-version: '9.0.x'
         - name: Обучение модели
           run: dotnet run --project ./TableRecommendationTraining/TableRecommendationTraining.csproj --configuration Release
         - name: Сохранение модели
